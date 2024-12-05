@@ -6,6 +6,7 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,12 +20,18 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.cors(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(request -> request.requestMatchers("/")
-                        .permitAll()
-                        .anyRequest()
+                .authorizeHttpRequests(request ->
+                        request
+                                .requestMatchers("/", "/h2-console/**")
+                                .permitAll()
+                                .anyRequest()
                         .authenticated())
+
                 .formLogin(form -> form.defaultSuccessUrl("/welcome"))
                 .httpBasic(Customizer.withDefaults());
+//        http.headers().frameOptions().sameOrigin();
+        http.csrf(AbstractHttpConfigurer::disable);
+        http.headers(HeadersConfigurer::disable);
         return http.build();
     }
 

@@ -1,6 +1,6 @@
 package com.epa.m.multi.jmprest.service;
 
-import com.epa.m.multi.jmprest.model.User;
+import com.epa.m.multi.jmprest.model.UserGen;
 import com.epa.m.multi.jmprest.model.GenUserResponse;
 import com.epa.m.multi.jmprest.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ public class UserGeneratorService {
     private final WebClient webClient;
     private final UserRepository repository;
 
-    private final List<User> usersList = new ArrayList<>();
+    private final List<UserGen> usersList = new ArrayList<>();
 
     public UserGeneratorService(UserRepository repository) {
         this.repository = repository;
@@ -25,13 +25,12 @@ public class UserGeneratorService {
 
     public GenUserResponse createUsers() {
         GenUserResponse response = webClient.get()
-                .uri("api/?results=10&inc=name,gender,nat,email,id&noinfo").retrieve()
+                .uri("api/?results=10&inc=name,gender,nat,email&noinfo").retrieve()
                 .bodyToMono(GenUserResponse.class)
                 .block();
         usersList.addAll(Optional.ofNullable(response.results()).orElse(Collections.emptyList()));
-        repository.init(usersList);
+//        repository.init(usersList);
         return response;
-
     }
 
 }
