@@ -45,15 +45,4 @@ public class SecurityConfig {
 
         return new InMemoryUserDetailsManager(user);
     }
-
-
-//    @Bean
-//    public UserDetailsService userDetailsService() {
-//        var user = User.withUsername("user")
-//                .password("pass")
-//                .roles("USER")
-//                .passwordEncoder(NoOpPasswordEncoder.getInstance()::encode)
-//                .build();
-//        return new InMemoryUserDetailsManager(user);
-//    }
 }

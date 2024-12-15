@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class UserRepository implements UserRepositoryInterface{
+public class UserRepository implements UserDao {
 
     private List<User> users = new ArrayList<>();
 

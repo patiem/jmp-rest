@@ -20,13 +20,9 @@ public class UserController {
         this.userGenService = userGenService;
     }
 
-    @GetMapping("/getAll")
+    @GetMapping("/users")
     public List<UserGen> create() {
         return userGenService.getAllUsers();
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/hello2")
-    public String sayHelloFull(@RequestParam String name) { //this way name must be provided in URL
-        return "welcome";
-    }
 }

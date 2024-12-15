@@ -5,7 +5,7 @@ import com.epa.m.multi.jmprest.model.User;
 import java.util.List;
 import java.util.Optional;
 
-public interface UserRepositoryInterface {
+public interface UserDao {
 
     User save(User user);
     Optional<User> findById(int id);
