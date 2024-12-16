@@ -9,7 +9,7 @@ public class UserMinimumAgeException extends RuntimeException {
         super(message);
     }
 
-    public UserMinimumAgeException(double minPrice) {
-        this("Minimum age must be greater than zero, but was " + minPrice);
+    public UserMinimumAgeException(double age) {
+        this("Minimum age must be greater than zero, but was " + age);
     }
 }
