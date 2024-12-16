@@ -63,7 +63,7 @@ public class UserController {
                 .map(u -> {
                     u.setFirstName(user.getFirstName());
                     u.setLastName(user.getLastName());
-                    u.setGender(user.getGender());
+                    u.setAge(user.getAge());
                     return ResponseEntity.ok(service.saveUser(u));
                 })
                 .orElse(ResponseEntity.notFound().build());

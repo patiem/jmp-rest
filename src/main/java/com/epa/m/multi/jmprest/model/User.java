@@ -5,13 +5,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 
 import java.util.Objects;
 @Entity
 public class User {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @NotBlank(message = "First name is required")
     private String firstName;
@@ -19,23 +20,23 @@ public class User {
     @NotBlank(message = "Last name is required")
     private String lastName;
 
-    @NotBlank(message = "Gender is required")
-    private Gender gender;
+    @Positive(message = "Age must be greater than zero")
+    private Integer age;
 
-    public User(Integer id,
+    public User(Long id,
                 String firstName,
                 String lastName,
-                Gender gender) {
+                Integer age) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.gender = gender;
+        this.age = age;
     }
 
     public User() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -47,11 +48,11 @@ public class User {
         return lastName;
     }
 
-    public Gender getGender() {
-        return gender;
+    public Integer getAge() {
+        return age;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -63,8 +64,8 @@ public class User {
         this.lastName = lastName;
     }
 
-    public void setGender(Gender gender) {
-        this.gender = gender;
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     @Override
@@ -75,12 +76,12 @@ public class User {
         return Objects.equals(this.id, that.id) &&
                 Objects.equals(this.firstName, that.firstName) &&
                 Objects.equals(this.lastName, that.lastName) &&
-                Objects.equals(this.gender, that.gender);
+                Objects.equals(this.age, that.age);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, gender);
+        return Objects.hash(id, firstName, lastName, age);
     }
 
     @Override
@@ -89,7 +90,7 @@ public class User {
                 "id=" + id + ", " +
                 "firstName=" + firstName + ", " +
                 "lastName=" + lastName + ", " +
-                "gender=" + gender + ']';
+                "age=" + age + ']';
     }
 
 }
