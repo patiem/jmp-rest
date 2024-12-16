@@ -1,14 +1,14 @@
-INSERT INTO users (first_name, last_name, gender)
-VALUES('Maja', 'Pracon', 'FEMALE');
-INSERT INTO users (first_name, last_name, gender)
-VALUES('Fiona', 'Apple', 'FEMALE');
-INSERT INTO users (first_name, last_name, gender)
-VALUES('Helmut', 'Khol', 'MALE');
-INSERT INTO users (first_name, last_name, gender)
-VALUES('Edyta', 'Gorniak', 'FEMALE');
-INSERT INTO users (first_name, last_name, gender)
-VALUES('Eros', 'Ramazzotti', 'MALE');
-INSERT INTO users (first_name, last_name, gender)
-VALUES('Mona', 'Lisa', 'FEMALE');
-INSERT INTO users (first_name, last_name, gender)
-VALUES('Maja', 'Pracon', 'UNKNOWN');
+INSERT INTO userr (first_name, last_name, age)
+VALUES('Maja', 'Pracon', 15);
+INSERT INTO userr (first_name, last_name, age)
+VALUES('Fiona', 'Apple', 20);
+INSERT INTO userr (first_name, last_name, age)
+VALUES('Helmut', 'Khol', 13);
+INSERT INTO userr (first_name, last_name, age)
+VALUES('Edyta', 'Gorniak', 18);
+INSERT INTO userr (first_name, last_name, age)
+VALUES('Eros', 'Ramazzotti', 44);
+INSERT INTO userr (first_name, last_name, age)
+VALUES('Mona', 'Lisa', 66);
+INSERT INTO userr (first_name, last_name, age)
+VALUES('Maja', 'Pracon', 99);
